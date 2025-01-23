@@ -59,3 +59,10 @@
 .explore-menu-list-item .select{
     color: tomato;
 }
+
+@media (max-width: 1050px) {
+    .explore-menu-text {
+        min-width: 100%;
+        font-size: 14px;
+    }
+}
