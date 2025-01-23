@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import "./PlaceOrder.css";
 import { StoreContext } from "../../context/StoreContext";
+import { useNavigate } from "react-router-dom";
 
 const PlaceOrder = () => {
   const { getTotalCartAmount } = useContext(StoreContext);
+  const navigate = useNavigate
   return (
     <form className='place-order'>
       <div className='place-order-left'>
