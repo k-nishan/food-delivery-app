@@ -15,6 +15,23 @@ const List = ({url}) => {
       toast.error("Error");
     }
   };
+  /*Equilent fetchList with promise(then; catch) */
+  // const fetchList = () => {
+  //   axios.get(`${url}/api/food/list`)
+  //     .then((responce) => {
+  //       console.log(responce.data);
+  //       if (responce.data.success) {
+  //         setList(responce.data.data);
+  //       } else {
+  //         toast.error("Error");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       toast.error("Error fetching the list");
+  //     });
+  // };
+  
 
   const removeFood = async (foodId) => {
     const responce = await axios.post(`${url}/api/food/remove`, { id: foodId });
