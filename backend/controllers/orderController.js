@@ -59,7 +59,6 @@ const verifyOrder = async (req, res) => {
   try {
     if (success == "true") {
       await orderModel.findByIdAndUpdate(orderId, { payment: true });
-      console.log('success verify method...')
       res.json({ success: true, message: "Payment success" });
     } else {
       await orderModel.findByIdAndDelete(orderId);
@@ -71,4 +70,15 @@ const verifyOrder = async (req, res) => {
   }
 };
 
-export { placeOrder, verifyOrder };
+// orders for frontend
+const userOrders = async(req,res) => {
+  try {
+    const orders = await orderModel.find({userId: req.body.userId})
+    res.json({success: true, data: orders})
+  } catch (error) {
+    console.log(error)
+    res.json({success: false, message: "Error while getting user orders"})
+  }
+}
+
+export { placeOrder, verifyOrder, userOrders };
